@@ -18,35 +18,21 @@ bash generate_pgtune.sh
 
 This script will use default settings / auto detects certain settings if you omit it. Exporting variables will automatically use those env var instead of the default.
 
-The variables
+| Variable        | Default                                                     |
+| --------------- | ----------------------------------------------------------- |
+| **DB_TYPE**     | `dw` (Data Warehouse)                                       |
+| **DB_VERSION**  | `13`                                                        |
+| **TOTAL_MEMORY**| `MemTotal` value from `/proc/meminfo`                       |
+| **MEMORY_UNIT** | `KB`                                                        |
+| **CPU_COUNT**   | output of `nproc`                                           |
+| **MAX_CONNECTIONS** | depends on DB_TYPE (see below)                                                       |
+| **HD_TYPE**     | rotational flag from `/sys/block/$DEV_NAME/queue/rotational` of the root block device |
 
-1. DB_TYPE
-default: dw (Data Warehouse)
+| DB_TYPE | MAX_CONNECTIONS |
+| ------- | --------------- |
+| web     | 200             |
+| oltp    | 300             |
+| dw      | 40              |
+| desktop | 20              |
+| mixed   | 100             |
 
-2. DB_VERSION
-default: 13
-
-3. TOTAL_MEMORY
-default: MemTotal of /proc/meminfo
-
-4. MEMORY_UNIT
-default: KB
-
-5. CPU_COUNT
-default: nproc
-
-6. MAX_CONNECTIONS
-default:
-
-DB_TYPE web: 200
-
-DB_TYPE oltp: 300
-
-DB_TYPE dw: 40
-
-DB_TYPE desktop: 20
-
-DB_TYPE mixed: 100
-
-8. HD_TYPE
-default: /sys/block/$DEV_NAME/queue/rotational of root block device
