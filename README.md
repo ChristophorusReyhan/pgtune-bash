@@ -37,11 +37,16 @@ default: nproc
 
 6. MAX_CONNECTIONS
 default:
+
 DB_TYPE web: 200
+
 DB_TYPE oltp: 300
+
 DB_TYPE dw: 40
+
 DB_TYPE desktop: 20
+
 DB_TYPE mixed: 100
 
-7. HD_TYPE
+8. HD_TYPE
 default: /sys/block/$DEV_NAME/queue/rotational of root block device
