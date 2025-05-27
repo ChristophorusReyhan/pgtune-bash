@@ -20,22 +20,22 @@ This script will use default settings / auto detects certain settings if you omi
 
 The variables
 
-DB_TYPE
+1. DB_TYPE
 default: dw (Data Warehouse)
 
-DB_VERSION
+2. DB_VERSION
 default: 13
 
-TOTAL_MEMORY
+3. TOTAL_MEMORY
 default: MemTotal of /proc/meminfo
 
-MEMORY_UNIT
+4. MEMORY_UNIT
 default: KB
 
-CPU_COUNT
+5. CPU_COUNT
 default: nproc
 
-MAX_CONNECTIONS
+6. MAX_CONNECTIONS
 default:
 DB_TYPE web: 200
 DB_TYPE oltp: 300
@@ -43,5 +43,5 @@ DB_TYPE dw: 40
 DB_TYPE desktop: 20
 DB_TYPE mixed: 100
 
-HD_TYPE
+7. HD_TYPE
 default: /sys/block/$DEV_NAME/queue/rotational of root block device
