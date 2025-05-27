@@ -16,4 +16,32 @@ export HD_TYPE=hdd
 bash generate_pgtune.sh
 ```
 
-The script automatically detects storage type. Exporting `export HD_TYPE=hdd` will automatically use this env var instead of the auto-detected type.
+This script will use default settings / auto detects certain settings if you omit it. Exporting variables will automatically use those env var instead of the default.
+
+The variables
+
+DB_TYPE
+default: dw (Data Warehouse)
+
+DB_VERSION
+default: 13
+
+TOTAL_MEMORY
+default: MemTotal of /proc/meminfo
+
+MEMORY_UNIT
+default: KB
+
+CPU_COUNT
+default: nproc
+
+MAX_CONNECTIONS
+default:
+DB_TYPE web: 200
+DB_TYPE oltp: 300
+DB_TYPE dw: 40
+DB_TYPE desktop: 20
+DB_TYPE mixed: 100
+
+HD_TYPE
+default: /sys/block/$DEV_NAME/queue/rotational of root block device
